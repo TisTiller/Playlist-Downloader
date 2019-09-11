@@ -1,0 +1,9 @@
+{
+    "spotify": {
+        "clientid": "",
+        "clientsecret": ""
+    },
+    "youtube": {
+        "yt_key": ""
+    }
+}

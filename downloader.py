@@ -1,12 +1,13 @@
 import requests, youtube_dl, webbrowser
 from base64 import b64encode
+from json import load
 
-# The Spotify API Client ID & Secret
-clientid = ""
-clientsecret = ""
+with open("keys.json", 'r') as keys:
+    jsonvals = load(keys)
 
-# The Youtube API Auth Key.
-yt_key = ""
+clientid     = jsonvals['spotify']['clientid']
+clientsecret = jsonvals['spotify']['clientsecret']
+yt_key       = jsonvals['youtube']['yt_key']
 
 # The Spotify Request Data
 data = f"{clientid}:{clientsecret}".encode("utf-8")
