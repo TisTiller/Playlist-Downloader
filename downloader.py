@@ -27,7 +27,16 @@ def getSpotifyTracks(playlist_id):
     except:
         return None
 
-
+ar = requests.post(
+                "https://accounts.spotify.com/api/token", 
+                data={"grant_type": "client_credentials"}, 
+                headers={"Authorization": f"Basic {str(b64encode(data), 'utf-8')}"}
+                ).json()
+if not ar['access_token']:
+    print("Didn't get an access token!")
+else:
+    sp_key = ar['access_token']
+    
 videos = []
 with youtube_dl.YoutubeDL({"format": "bestaudio", 'default_search': 'ytsearch'}) as ytdl:
     try:
